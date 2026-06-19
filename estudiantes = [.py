@@ -6,5 +6,3 @@ estudiantes = [
     {"nombre": "Elena", "notas": [6.8, 7.0, 6.9], "asistencia": 95}
 ]
 
-
-print(estudiantes[1])
