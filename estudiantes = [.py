@@ -6,3 +6,27 @@ estudiantes = [
     {"nombre": "Elena", "notas": [6.8, 7.0, 6.9], "asistencia": 95}
 ]
 
+
+
+#PASO 2 : 
+
+def aplicar_bono_asistencia(lista_con_promedios):
+    """Ajusta el promedio segun asistencia y guarda el resultado en promedio_final."""
+    for estudiante in lista_con_promedios:
+        promedio_base = estudiante.get("promedio_base")
+
+        if promedio_base is None:
+            continue
+
+        if estudiante.get("asistencia", 0) >= 90:
+            promedio_ajustado = promedio_base + 0.3
+        elif estudiante.get("asistencia", 0) < 70:
+            promedio_ajustado = promedio_base - 0.2
+        else:
+            promedio_ajustado = promedio_base
+
+        promedio_ajustado = max(1.0, min(7.0, promedio_ajustado))
+        estudiante["promedio_final"] = round(promedio_ajustado, 1)
+
+    return lista_con_promedios
+
